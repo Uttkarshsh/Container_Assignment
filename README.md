@@ -1,3 +1,5 @@
+Markdown
+
 # 🚀 Streamlit + MySQL App with Docker Compose
 
 This project demonstrates how to set up a **Streamlit** application that connects to a **MySQL** database using **Docker Compose**. It features a clean multi-container architecture, initializes the database with dummy data, and displays it through a Streamlit dashboard.
@@ -6,7 +8,6 @@ This project demonstrates how to set up a **Streamlit** application that connect
 
 ## 📁 Project Structure
 
-```bash
 .
 ├── .venv/                 # (Optional) Python virtual environment
 ├── backend/               # Streamlit frontend application
@@ -16,32 +17,32 @@ This project demonstrates how to set up a **Streamlit** application that connect
 │   ├── init.sql           # SQL script to initialize and populate the DB
 │   └── Dockerfile         # Dockerfile to customize the MySQL image
 ├── docker-compose.yml     # Docker Compose configuration to orchestrate services
-🧰 Prerequisites
-Docker & Docker Compose
 
-Basic knowledge of Python, SQL, and Docker
 
-⚙️ Getting Started
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/Uttkarshsh/Container_Assignment
+## 🧰 Prerequisites
+
+- Docker & Docker Compose
+- Basic knowledge of Python, SQL, and Docker
+
+## ⚙️ Getting Started
+
+**1️⃣ Clone the Repository**
+
+```bash
+git clone [https://github.com/Uttkarshsh/Container_Assignment](https://github.com/Uttkarshsh/Container_Assignment)
 cd streamlit-mysql-docker
 2️⃣ Start the Application
-bash
-Copy
-Edit
+
+Bash
+
 docker-compose up --build
 This command will:
 
 Build the custom MySQL image and initialize it using init.sql
-
 Build and run the Streamlit app in a separate container
-
 Connect both containers via a Docker network
-
 🌐 Access the App
+
 Once the containers are running, open your browser and navigate to:
 
 🔗 http://localhost:8501
@@ -49,9 +50,8 @@ Once the containers are running, open your browser and navigate to:
 You’ll see a dashboard displaying data from the MySQL database.
 
 📝 Streamlit App Code (backend/app.py)
-python
-Copy
-Edit
+Python
+
 import streamlit as st
 import mysql.connector
 
@@ -73,9 +73,8 @@ try:
 except Exception as e:
     st.error(f"Error: {e}")
 🛢️ Database Initialization (db/init.sql)
-sql
-Copy
-Edit
+SQL
+
 CREATE TABLE IF NOT EXISTS people (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
@@ -87,9 +86,8 @@ INSERT INTO people (name, age) VALUES
 ('Dev', 30),
 ('Prashant', 28);
 🐳 Docker Compose (docker-compose.yml)
-yaml
-Copy
-Edit
+YAML
+
 version: '3.8'
 
 services:
@@ -124,58 +122,57 @@ networks:
 To interact with the MySQL database inside the container, follow these steps:
 
 🔐 Step 1: Enter the MySQL Shell
-bash
-Copy
-Edit
+
+Bash
+
 docker exec -it mysql_container mysql -u user -p
 When prompted for a password, enter:
 
-bash
-Copy
-Edit
+Bash
+
 password
 💾 Step 2: Select the Database
-sql
-Copy
-Edit
+
+SQL
+
 USE testdb;
 ✅ Sample SQL Queries
+
 🔽 Insert New Record
-sql
-Copy
-Edit
+
+SQL
+
 INSERT INTO people (name, age) VALUES ('Aman', 24);
 🔍 Read All Records
-sql
-Copy
-Edit
+
+SQL
+
 SELECT * FROM people;
 ✏️ Update a Record
-sql
-Copy
-Edit
+
+SQL
+
 UPDATE people SET age = 26 WHERE name = 'Uttkarsh';
 ❌ Delete a Record
-sql
-Copy
-Edit
+
+SQL
+
 DELETE FROM people WHERE name = 'Dev';
 💣 Drop the Table (⚠️ Be Careful)
-sql
-Copy
-Edit
+
+SQL
+
 DROP TABLE people;
 🚪 Exit the MySQL Shell
-bash
-Copy
-Edit
+
+Bash
+
 exit;
 🧼 Cleanup
 To stop and remove all services and networks:
 
-bash
-Copy
-Edit
+Bash
+
 docker-compose down
 👨‍💻 Author
 Made with ❤️ by Uttkarsh Sharma
