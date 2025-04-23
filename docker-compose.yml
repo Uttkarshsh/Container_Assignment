@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./db
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./backend
+    container_name: streamlit_container
+    depends_on:
+      - db
+    ports:
+      - "8501:8501"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
