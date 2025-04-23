@@ -1,13 +1,18 @@
-Markdown
-
 # 🚀 Streamlit + MySQL App with Docker Compose
 
 This project demonstrates how to set up a **Streamlit** application that connects to a **MySQL** database using **Docker Compose**. It features a clean multi-container architecture, initializes the database with dummy data, and displays it through a Streamlit dashboard.
 
 ---
 
-## 📁 Project Structure
+## 📦 Prerequisites
+- Docker & Docker Compose installed on your system ([Get Docker](https://docs.docker.com/get-docker/))
+- Basic knowledge of Python, SQL, and Docker
 
+---
+
+## 🛠️ Project Structure
+
+```bash
 .
 ├── .venv/                 # (Optional) Python virtual environment
 ├── backend/               # Streamlit frontend application
@@ -17,37 +22,31 @@ This project demonstrates how to set up a **Streamlit** application that connect
 │   ├── init.sql           # SQL script to initialize and populate the DB
 │   └── Dockerfile         # Dockerfile to customize the MySQL image
 ├── docker-compose.yml     # Docker Compose configuration to orchestrate services
+└── README.md
+🛠️ Step 1: Clone the Repository
+Clone the project repository to your local machine.
 
+Bash
 
-## 🧰 Prerequisites
-
-- Docker & Docker Compose
-- Basic knowledge of Python, SQL, and Docker
-
-## ⚙️ Getting Started
-
-**1️⃣ Clone the Repository**
-
-```bash
 git clone [https://github.com/Uttkarshsh/Container_Assignment](https://github.com/Uttkarshsh/Container_Assignment)
 cd streamlit-mysql-docker
-2️⃣ Start the Application
+🛠️ Step 2: Start the Application
+Use Docker Compose to build and run the entire application stack.
 
 Bash
 
 docker-compose up --build
 This command will:
 
-Build the custom MySQL image and initialize it using init.sql
-Build and run the Streamlit app in a separate container
-Connect both containers via a Docker network
-🌐 Access the App
-
-Once the containers are running, open your browser and navigate to:
+Build the custom MySQL image using the Dockerfile in the db directory and initialize it with the init.sql script.
+Build the Streamlit application image using the Dockerfile in the backend directory.
+Start both the MySQL and Streamlit containers and connect them via a Docker network defined in docker-compose.yml.
+🌐 Step 3: Access the App
+Once the containers are running, open your web browser and navigate to:
 
 🔗 http://localhost:8501
 
-You’ll see a dashboard displaying data from the MySQL database.
+You should see a Streamlit dashboard displaying the data fetched from the MySQL database.
 
 📝 Streamlit App Code (backend/app.py)
 Python
@@ -119,7 +118,7 @@ networks:
   mynetwork:
     driver: bridge
 📦 MySQL Commands (Manual Access)
-To interact with the MySQL database inside the container, follow these steps:
+To interact with the MySQL database inside the container, you can use the following commands:
 
 🔐 Step 1: Enter the MySQL Shell
 
@@ -168,11 +167,13 @@ DROP TABLE people;
 Bash
 
 exit;
-🧼 Cleanup
-To stop and remove all services and networks:
+🧹 Cleanup
+To stop and remove all the Docker containers and the network created by Docker Compose, run:
 
 Bash
 
 docker-compose down
 👨‍💻 Author
 Made with ❤️ by Uttkarsh Sharma
+
+🚀 Enjoy your Streamlit app connected to MySQL using Docker Compose! 🚀
