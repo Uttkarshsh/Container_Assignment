@@ -165,8 +165,6 @@ When prompted for a password, enter:
 password
 💾 Step 2: Select the Database
 
-
-
 SQL
 
 USE testdb;
@@ -174,49 +172,55 @@ USE testdb;
 
 🔽 Insert New Record
 
+
 SQL
-
-
+```bash
 
 INSERT INTO people (name, age) VALUES ('Aman', 24);
+
+```
 🔍 Read All Records
+```bash
 
 SQL
 
 SELECT * FROM people;
 ✏️ Update a Record
 
-
-
+```
+```bash
 
 SQL
 
 UPDATE people SET age = 26 WHERE name = 'Uttkarsh';
+```
+
 ❌ Delete a Record
-
-
-
-
+```bash
 SQL
 
 DELETE FROM people WHERE name = 'Dev';
+```bash
+```
+
+
 💣 Drop the Table (⚠️ Be Careful)
-
-
-
+```bash
 
 SQL
 
 DROP TABLE people;
+
+```
 🚪 Exit the MySQL Shell
-
-
-
-
+```bash
 
 Bash
 
 exit;
+```bash
+```
+
 🧹 Cleanup
 
 
