@@ -186,7 +186,7 @@ SQL
 
 SELECT * FROM people;
 ✏️ Update a Record
-```bash
+
 ```
 ```bash
 
@@ -200,7 +200,7 @@ UPDATE people SET age = 26 WHERE name = 'Uttkarsh';
 SQL
 
 DELETE FROM people WHERE name = 'Dev';
-```bash
+
 ```
 
 
@@ -218,7 +218,7 @@ DROP TABLE people;
 Bash
 
 exit;
-```bash
+
 ```
 
 🧹 Cleanup
