@@ -186,7 +186,7 @@ SQL
 
 SELECT * FROM people;
 ✏️ Update a Record
-
+```bash
 ```
 ```bash
 
@@ -226,7 +226,7 @@ exit;
 
 To stop and remove all the Docker containers and the network created by Docker Compose, run:
 
-Bash
+
 ```bash
 
 
